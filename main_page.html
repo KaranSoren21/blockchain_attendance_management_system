@@ -1,0 +1,235 @@
+<html>
+    <head>
+		<link rel="stylesheet" href = "style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
+        <script type = "text/javascript">
+
+            var contract;
+            var address = "0x87e5bf2113B1cadCa408FDb1228959D66F284c79";
+            var abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "_id",
+				"type": "int256"
+			}
+		],
+		"name": "addAttendence",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "_id",
+				"type": "int256"
+			},
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "int256",
+				"name": "attend",
+				"type": "int256"
+			}
+		],
+		"name": "addStudent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "_id",
+				"type": "int256"
+			}
+		],
+		"name": "deleteStudent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "_id",
+				"type": "int256"
+			}
+		],
+		"name": "viewAttendance",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "_id",
+				"type": "int256"
+			}
+		],
+		"name": "viewStudent",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+	
+            web3 = new Web3(web3.currentProvider);
+            contract = new web3.eth.Contract(abi, address);
+            $(document).ready(function(){
+
+                $("#_view_name").click(function(){
+
+                    var s_id = parseInt($("#_sid").val());
+                    contract.methods.viewStudent(s_id).call().then(function(name){
+                        $("#_output").val(name);
+                        console.log(name);
+                    })
+                })
+
+				$("#_viewAttendance").click(function(){
+
+					var s_id = parseInt($("#_sid").val());
+					contract.methods.viewAttendance(s_id).call().then(function(attend){
+						$("#_output").val(attend);
+						console.log(attend);
+					})
+				})
+
+				$("#_delete").click(function(){	
+					web3.eth.getAccounts().then(function(accounts){
+
+						var acnt = accounts[0];
+						var sid = $("#_sid").val();
+					//	var name = $("#_name").val();
+					//	var attend = $("#_attend").val();
+						return contract.methods.deleteStudent(sid).send({from: acnt});
+					}).then(function(trx){
+						console.log(trx);
+						alert("Successfully deleted");
+					})
+				})				
+
+				$("#_add").click(function(){
+
+					web3.eth.getAccounts().then(function(accounts){
+
+						var acnt = accounts[0];
+						var sid = $("#_sid").val();
+						var name = $("#_name").val();
+						var attend = $("#_attend").val();
+						return contract.methods.addStudent(sid, name, attend).send({from: acnt});
+					}).then(function(trx){
+						console.log(trx);
+						alert("Successfully added");
+					})
+				})
+			
+				$("#_addAttendance").click(function(){	
+					web3.eth.getAccounts().then(function(accounts){
+
+						var acnt = accounts[0];
+						var sid = $("#_sid").val();
+					//	var name = $("#_name").val();
+					//	var attend = $("#_attend").val();
+						return contract.methods.addAttendence(sid).send({from: acnt});
+					}).then(function(trx){
+						console.log(trx);
+						alert("Successfully added");
+					})
+				})			
+		})
+        </script>
+    </head>
+    <body>
+		<div class = "wrapper">
+			<div class ="title" align ="center"> 
+				Attendance Management System 
+			</div>
+			<div class ="form">
+					<table>
+						
+									
+						<tr>
+							<td><label for = "fname">Student Id</label></td>  
+							<td><input type = "text" id = "_sid"></td>
+						</tr>
+						<tr>	
+							<td><label for = "lname">Name</label></td> 
+							<td><input type = "text" id = "_name"></td>
+						</tr>
+						<tr>
+							<td><label for = "attend">Attendance</label></td>
+							<td><input type = "number" id = "_attend"></td>
+						</tr>
+						<tr>
+							<td><label for = "attendance_">Add Student ID, then Click on=></label></td>
+							<td>
+								<input type = "submit" value = "Add Attendance" id = "_addAttendance">
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<label for = "delete_attendance_">Add Student ID, then Click on=></label>
+							</td>
+							<td>
+								<input type = "submit" value = "Delete Student Data" id = "_delete">
+									<!--<p id = "trl"></p>-->
+							</td>
+							
+						</tr>
+						<tr>
+							<td><label for = "AddDetails">Add Student ID, Name, Attendance, then Click on =></label></td>
+							<td><input type = "submit" value = "Add Student Details" id = "_add"></td>
+						</tr>	
+
+						<tr>									
+							
+							<td><label for = "viewAttendance">Type Student ID,Then Click on =></label></td>
+							<td><input type = "submit" value = "View Attendance" id = "_viewAttendance"></td>
+						</tr>
+
+						<tr>				
+							<td><label for = "output">View Student - Name / Attendance </label></td>
+							<td><input type = "text" value = "Attendance,'Name'" id = "_output"></td>
+						</tr>
+						<tr>
+							<td><label for = "viewName">Type Student ID,Then Click on => </label></td>	
+							<td><input type = "submit" value = "View Student Name" id = "_view_name"></td>
+						</tr>
+
+					</table>
+			</div>
+		</div>
+	</body>
+</html>    
+
