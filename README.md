@@ -9,6 +9,7 @@ To transact some ether, we need some wallets such as metamask wallet.
 * Click on  `I agree` under `Help Us Improve Metamask`
 * Then, Create a password.
 * Then, note down the Secret Backup Phrase.
+* Next, select each phrase in order to make sure it is correct which is already noted down. Then, click on `Confirm` 
 * All done
 # Output of this project
 ![Animation1](https://user-images.githubusercontent.com/70742988/147640817-88e6b198-1793-4d48-9343-887972555609.gif)
