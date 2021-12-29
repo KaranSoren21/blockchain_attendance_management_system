@@ -25,7 +25,7 @@ For this mini-project, I have collected some ether under ropsten test network fr
 1.Ethereum Remix
   - go to `https://remix.ethereum.org/`
   - Click on new file.
-  - Write code for smart contracts in solidy programming language. 
+  - Write code for smart contracts in solidity programming language. For the learning purpose, you can simply copy my solidity program code and paste it on the ethereum remix plaform.  
 2. Solidity Compiler 
   - Click on solidity compiler
   - Click on compile file_name.sol
@@ -36,5 +36,10 @@ For this mini-project, I have collected some ether under ropsten test network fr
     - Reject
     - Confirm
     - Edit
+ 4. After transaction successfully, note down `ABI` and `address of the smart contract` which is just deployed.
+  - ABI - Under the Ethereum remix -> go to the Solidity Compiler -> Scroll Down -> Copy ABI.
+  - Address - Open on Metamask Wallet -> View on Etherscan -> Find the contract that you have deployed -> Click onto TransactionHex -> Copy the address of contract
+# Integration with web page.
+
 # Output of this project
 ![Animation1](https://user-images.githubusercontent.com/70742988/147640817-88e6b198-1793-4d48-9343-887972555609.gif)
