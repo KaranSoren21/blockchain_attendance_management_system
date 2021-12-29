@@ -4,7 +4,7 @@ It is a mini-project on blockchain technology. I have built up this project with
 Smart contracts are computer programs which used to execute automatically. For executing smart contracts, we need some gas fees in the form of ether. That means ether is the currency used in the ethereum. To write these smart contracts, we need some language called Solidity. 
 # How to setup metamask wallet in your browser
 To transact some ether, we need some wallets such as metamask wallet.
-* `For chrome extension -> metamask or for firefox extension`
+* Go `chrome extension` (possible on any browser extension) and add metamask`
 * Click on `create a wallet`.
 * Click on  `I agree` under `Help Us Improve Metamask`
 * Then, Create a password.
