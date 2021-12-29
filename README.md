@@ -32,14 +32,13 @@ For this mini-project, I have collected some ether under ropsten test network fr
 3. Deploy & Transaction
   - Click on Deploy & Transactions
   - Change the Enviornment to Injected Web3. It ask to enter the metamask wallet password.
-  - Click on Deploy. It ask to pay some gas fee from your metamask wallet. Then, there are three options available -> 
-    - Reject
-    - Confirm
-    - Edit
- 4. After transaction successfully, note down `ABI` and `address of the smart contract` which is just deployed.
+  - Click on Deploy. It ask to pay some gas fee from your metamask wallet. Then, there are three options available -> Reject, Edit, and Confirm. Click on Confirm
+ 4. After transaction successfully, note down `ABI` and `address of the smart contract` which is just deployed by you.
   - ABI - Under the Ethereum remix -> go to the Solidity Compiler -> Scroll Down -> Copy ABI.
   - Address - Open on Metamask Wallet -> View on Etherscan -> Find the contract that you have deployed -> Click onto TransactionHex -> Copy the address of contract
 # Integration with web page.
-
+1. You can copy my HTML code. All you need to do is replace my deployed ABI and contract address with your deployed ABI and contract address.
+2. Host the server using python -> `$ python -m http.server 80`
+3. Open any browser -> Type in the URL -> localhost:80 -> Press Enter
 # Output of this project
 ![Animation1](https://user-images.githubusercontent.com/70742988/147640817-88e6b198-1793-4d48-9343-887972555609.gif)
