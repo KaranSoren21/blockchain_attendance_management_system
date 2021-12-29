@@ -25,7 +25,7 @@ For this mini-project, I have collected some ether under ropsten test network fr
 1.Ethereum Remix
   - go to `https://remix.ethereum.org/`
   - Click on new file.
-  - Write code for smart contracts in solidity programming language. For the learning purpose, you can simply copy my solidity program code and paste it on the ethereum remix plaform.  
+  - Write code for smart contracts in solidity programming language. For the learning purpose, you can also copy the code from my Solidity program and paste it into the Ethereum remix platform.  
 2. Solidity Compiler 
   - Click on solidity compiler
   - Click on compile file_name.sol
